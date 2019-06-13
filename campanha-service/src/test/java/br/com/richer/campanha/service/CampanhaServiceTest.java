@@ -36,6 +36,12 @@ public class CampanhaServiceTest {
     @Before
     public void before() {
 
+        this.campanhaService = new CampanhaServiceImpl(campanhaRepository, conversorService, campanhaQueueSender);
+    }
+
+    @Test
+    public void validaRegraDataVigencia() {
+
         CampanhaEntity entity1 = new CampanhaEntity();
 
         entity1.setDataVigencia(LocalDate.of(2019, 12, 03));
@@ -50,12 +56,6 @@ public class CampanhaServiceTest {
 
         campanhaRepository.save(entity1);
         campanhaRepository.save(entity2);
-
-        this.campanhaService = new CampanhaServiceImpl(campanhaRepository, conversorService, campanhaQueueSender);
-    }
-
-    @Test
-    public void validaRegraDataVigencia() {
 
         Campanha campanha = new Campanha();
         campanha.setIdTimeCoracao(3L);

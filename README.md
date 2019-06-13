@@ -24,13 +24,16 @@ Foram utilizados os seguintes frameworks e ferramentas:
 Como foi utilizado um banco de dados em memória não foram criados fallbacks para tal integração o unico fallback existente
 é o tratamento de chamadas entre os microserviços.
 
+### Pre-requisitos
+
+- É necessário ter o Java 8 e maven instalado e configurado.
+
 ### Build
 
 Para realizar o build é necessário compilar o projeto:
 
 ```sh
-$ cd service1
-$ mvn compile spring-boot:run
+$ mvn compile
 ```
 ### Iniciando os Serviços
 
@@ -49,3 +52,19 @@ $ mvn compile spring-boot:run
 ```
 
 Você pode parar o serviço de campanhas e continuar utilizando o serviço de usuário, porém as campanhas não serão associadas.
+
+### Testes
+
+Para verificar os testes unitários do serviço de campanha realize os seguintes comandos:
+
+```sh
+$ cd campanha-service
+$ mvn clean test
+```
+
+Para verificar os testes unitários do serviço de usuário realize os seguintes comandos:
+
+```sh
+$ cd socio-torcedor-service
+$ mvn clean test
+```
